@@ -1,12 +1,16 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'R&S Soluciones Integrales | Consultoría y Capacitación en Colombia',
   description: 'Expertos en consultoría administrativa, capacitación organizacional y suministro técnico. Potenciamos sectores público, privado y social en toda Colombia.',
   keywords: 'consultoría empresarial Colombia, asesoría administrativa, capacitación organizacional, contratación pública, servicios empresariales',
   authors: [{ name: 'R&S Soluciones Integrales S.A.S.' }],
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
 };
 
