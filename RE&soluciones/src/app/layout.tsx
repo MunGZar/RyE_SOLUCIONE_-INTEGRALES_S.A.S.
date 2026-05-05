@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   keywords: 'consultoría empresarial Colombia, asesoría administrativa, capacitación organizacional, contratación pública, servicios empresariales',
   authors: [{ name: 'R&S Soluciones Integrales S.A.S.' }],
   robots: 'index, follow',
+  icons: {
+    icon: '/images/favicon.png',
+  },
 };
 
 export default function RootLayout({
