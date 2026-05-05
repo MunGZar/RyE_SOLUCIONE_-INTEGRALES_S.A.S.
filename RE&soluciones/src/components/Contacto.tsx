@@ -9,17 +9,53 @@ export default function Contacto() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API interaction (1.5 seconds delay)
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const nombre = formData.get('nombre') as string;
+    const empresa = formData.get('empresa') as string;
+    const correo = formData.get('correo') as string;
+    const telefono = formData.get('telefono') as string;
+    const asunto = formData.get('asunto') as string;
+    const mensaje = formData.get('mensaje') as string;
+
+    const asuntoMap: Record<string, string> = {
+      capacitacion: "Capacitación Organizacional",
+      consultoria: "Consultoría Administrativa",
+      suministros: "Suministro de Bienes e Insumos",
+      asesoria: "Asesoría Especializada",
+      otro: "Otro Requerimiento"
+    };
+
+    const asuntoTexto = asuntoMap[asunto] || asunto;
+
+    const text = `*NUEVA SOLICITUD DE SERVICIO* 
+
+*Datos del Contacto:*
+*Nombre:* ${nombre}
+*Organización/Entidad:* ${empresa || 'No especificada'}
+*Correo Corporativo:* ${correo}
+*Teléfono:* ${telefono}
+
+*Detalles del Requerimiento:*
+*Servicio de Interés:* ${asuntoTexto}
+*Mensaje:* 
+${mensaje}
+
+_Solicitud generada desde el sitio web corporativo de R&S Soluciones Integrales._`;
+
+    const whatsappNumber = "573137788529";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setShowSuccess(true);
-      (e.target as HTMLFormElement).reset();
+      window.open(whatsappUrl, '_blank');
+      form.reset();
       
-      // Hide success message after 5 seconds
       setTimeout(() => {
         setShowSuccess(false);
       }, 5000);
-    }, 1500);
+    }, 800);
   };
 
   return (
@@ -39,14 +75,14 @@ export default function Contacto() {
                 <div className="c-icon"><i className='bx bxl-whatsapp'></i></div>
                 <div className="c-text">
                   <h5>Asesoría por WhatsApp</h5>
-                  <a href="https://wa.me/570000000000" target="_blank" rel="noopener noreferrer">Contactar Especialista</a>
+                  <a href="https://wa.me/573137788529" target="_blank" rel="noopener noreferrer">Contactar Especialista</a>
                 </div>
               </div>
               <div className="c-method">
                 <div className="c-icon"><i className='bx bx-envelope'></i></div>
                 <div className="c-text">
                   <h5>E-mail Corporativo</h5>
-                  <a href="mailto:info@rs-soluciones.com">info@rs-soluciones.com</a>
+                  <a href="mailto:iryesolucionesintegrales@gmail.com">iryesolucionesintegrales@gmail.com</a>
                 </div>
               </div>
               <div className="c-method">

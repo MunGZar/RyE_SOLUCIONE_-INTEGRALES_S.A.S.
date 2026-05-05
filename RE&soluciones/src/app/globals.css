@@ -222,9 +222,16 @@ ul {
 }
 
 .logo .header-logo {
-    width: 100%;
+    display: block;
+    width: 180px;
     height: auto;
-    max-width: 240px; /* Default max width */
+    transition: var(--transition);
+}
+
+.logo-text {
+    display: none; /* Keep hidden unless image fails */
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
 }
 
 @media (max-width: 480px) {
@@ -240,7 +247,7 @@ ul {
     gap: 2rem;
 }
 .nav-links a {
-    color: #fff;
+    color: #374151; /* Dark text for light background */
     font-weight: 500;
     font-size: 0.95rem;
     position: relative;
@@ -283,13 +290,14 @@ ul {
     display: flex;
     align-items: center;
     padding-top: clamp(100px, 15vw, 120px);
+    padding-bottom: 4rem; 
 }
 
 .hero-bg {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(10,37,64,0.95) 0%, rgba(30,58,138,0.8) 100%),
-                url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 45%, rgba(255,255,255,0) 100%),
+                url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80') center/cover no-repeat;
     z-index: -1;
 }
 
@@ -302,27 +310,27 @@ ul {
 
 .badge {
     display: inline-block;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4B5563;
+    margin-bottom: 1rem;
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    color: #fff;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    color: #111827;
     margin-bottom: 1.5rem;
     line-height: 1.1;
+    font-weight: 800;
 }
 .hero-desc {
     font-size: clamp(1rem, 3vw, 1.125rem);
-    color: rgba(255, 255, 255, 0.8);
+    color: #4B5563;
     margin-bottom: 2.5rem;
-    max-width: 600px;
+    max-width: 650px;
 }
 .hero-buttons {
     display: flex;
@@ -330,12 +338,12 @@ ul {
     flex-wrap: wrap;
 }
 .hero .btn-outline {
-    border-color: #fff;
-    color: #fff !important;
+    border-color: #111827;
+    color: #111827 !important;
 }
 .hero .btn-outline:hover {
-    background: #fff;
-    color: var(--primary-color) !important;
+    background: #111827;
+    color: #fff !important;
 }
 
 /* =========================================================================

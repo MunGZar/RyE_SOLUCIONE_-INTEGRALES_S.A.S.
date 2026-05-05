@@ -21,7 +21,7 @@ export default function RootLayout({
     "name": "R&S Soluciones Integrales S.A.S.",
     "description": "Consultoría empresarial, capacitación organizacional y apoyo técnico en Colombia.",
     "url": "https://rys-soluciones.com", // Placeholder URL
-    "telephone": "+570000000000",
+    "telephone": "+573137788529",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Colombia"

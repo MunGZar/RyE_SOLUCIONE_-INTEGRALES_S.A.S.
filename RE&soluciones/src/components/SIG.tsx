@@ -94,9 +94,10 @@ export default function SIG() {
         {/* Cierre */}
         <div className="sig-cierre">
           <i className="bx bx-trophy sig-cierre-icon"></i>
-          <p>
+
+          <p className="text-white">
             El Sistema Integrado de Gestión fortalece la{' '}
-            <strong>toma de decisiones basada en evidencia</strong>, la eficiencia operativa y la
+            <strong className="text-primary-color">toma de decisiones basada en evidencia</strong>, la eficiencia operativa y la
             competitividad empresarial, consolidando a R&S Soluciones Integrales como un referente
             en la implementación de estándares internacionales de gestión.
           </p>

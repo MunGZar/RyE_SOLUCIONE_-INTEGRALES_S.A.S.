@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,7 +13,7 @@ export default function Header() {
 
       const sections = document.querySelectorAll('section');
       let currentSectionId = 'hero';
-      
+
       sections.forEach(current => {
         const sectionTop = (current as HTMLElement).offsetTop - 100;
         if (window.scrollY >= sectionTop) {
@@ -41,17 +40,19 @@ export default function Header() {
   return (
     <header className={`header ${isScrolled || isMobileMenuOpen ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`} id="header">
       <div className="container header-content">
-        <Link href="#" className="logo" onClick={closeMobileMenu} style={{ display: 'flex', alignItems: 'center' }}>
-          <Image 
-            src={isScrolled || isMobileMenuOpen ? "/images/logo.png" : "/images/logo-white.png"} 
-            alt="R&S Soluciones Integrales" 
-            width={180} 
-            height={60} 
-            priority
-            className="header-logo transition-all duration-300"
+        <Link href="/" className="logo" onClick={closeMobileMenu}>
+          <img
+            src={isScrolled || isMobileMenuOpen ? "/images/logo.png" : "/images/logo.png"}
+            alt="R&S Soluciones Integrales"
+            className="header-logo"
           />
+          <span className="logo-text" style={{
+            display: 'none',
+            fontWeight: 800,
+            fontSize: '1.2rem'
+          }}>R&S SOLUCIONES</span>
         </Link>
-        
+
         <nav className="navbar" id="navbar">
           <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
             <li><Link href="#hero" className={activeSection === 'hero' ? 'active' : ''} onClick={closeMobileMenu}>Inicio</Link></li>
@@ -63,12 +64,12 @@ export default function Header() {
             <li><Link href="#contacto" className={activeSection === 'contacto' ? 'active' : ''} onClick={closeMobileMenu}>Contacto</Link></li>
           </ul>
         </nav>
-        
+
         <div className="header-actions">
           <Link href="#contacto" className="btn btn-primary">Cotizar Asesoría</Link>
-          <button 
-            className="mobile-toggle" 
-            id="mobile-toggle" 
+          <button
+            className="mobile-toggle"
+            id="mobile-toggle"
             aria-label="Toggle Menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
